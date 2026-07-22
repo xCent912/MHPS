@@ -7,7 +7,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        /* Mencegah elemen keluar batas & mengunci pergeseran layar samping */
         * {
             box-sizing: border-box;
         }
@@ -99,35 +98,34 @@
             color: #dc2626;
         }
 
-        /* Pengaturan Marquee Heroes yang Dioptimalkan agar Ukuran Pas & Proporsional */
-        .marquee-horizontal {
-            position: relative;
+        /* PERBAIKAN INFINITE MARQUEE TANPA DELAY */
+        .marquee-container {
             overflow: hidden;
             width: 100%;
+            position: relative;
+            display: flex;
         }
 
         .marquee-track {
             display: flex;
             gap: 1.5rem;
             width: max-content;
-            animation: marqueeHorizontal 28s linear infinite;
-            will-change: transform;
+            animation: scrollMarquee 25s linear infinite;
         }
 
-        .marquee-horizontal:hover .marquee-track {
+        .marquee-container:hover .marquee-track {
             animation-play-state: paused;
         }
 
-        @keyframes marqueeHorizontal {
+        @keyframes scrollMarquee {
             0% {
                 transform: translateX(0);
             }
             100% {
-                transform: translateX(-50%);
+                transform: translateX(calc(-100% - 1.5rem));
             }
         }
 
-        /* Lebar pasti kartu pahlawan agar tidak gepeng dan proporsional di semua layar */
         .hero-card-item {
             width: 280px;
             flex-shrink: 0;
@@ -378,7 +376,7 @@
         </div>
     </section>
 
-    <!-- Heroes Section (Marquee Terstruktur Rapi) -->
+    <!-- Heroes Section (Marquee Mulus Tanpa Jeda) -->
     <section id="heroes" class="py-20 sm:py-24 section-blue overflow-hidden">
         <div class="container mx-auto px-6 mb-12">
             <div class="text-center">
@@ -397,8 +395,8 @@
             </div>
         </div>
 
-        <!-- Marquee Track Wrapper -->
-        <div class="marquee-horizontal w-full">
+        <!-- Marquee Container -->
+        <div class="marquee-container">
             <div class="marquee-track">
                 <!-- SET 1 -->
                 <div class="card p-6 sm:p-8 rounded-2xl text-center relative mt-8 hero-card-item">
@@ -446,7 +444,7 @@
                     <p class="text-gray-600 text-xs sm:text-sm italic font-medium">"Kami adalah garda terdepan. Siap melindungi, memandu, dan memastikan setiap petualanganmu aman!"</p>
                 </div>
 
-                <!-- SET 2 (Duplikat untuk Looping Mulus) -->
+                <!-- SET 2 (Salinan Identik untuk Perputaran Tanpa Jeda) -->
                 <div class="card p-6 sm:p-8 rounded-2xl text-center relative mt-8 hero-card-item">
                     <div class="absolute -top-10 left-1/2 transform -translate-x-1/2 w-20 h-20 bg-white rounded-full flex items-center justify-center border-4 border-red-500 shadow-lg">
                         <i class="fa-solid fa-crown text-3xl text-red-500"></i>
