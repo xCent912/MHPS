@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MHPS | Merah Putih Private Server</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@400;600;800&display=swap');
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(180deg, #ffffff 0%, #e0f2fe 100%); /* White to Sky Blue gradient */
+            color: #1f2937; /* Darker text for readability on light background */
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+        h1, h2, h3, .font-epic {
+            font-family: 'Cinzel', serif;
+        }
+        .hero-bg {
+            background: radial-gradient(circle at center, rgba(185, 28, 28, 0.05) 0%, rgba(255, 255, 255, 0.9) 70%), 
+                        url('Background_image.PNG') no-repeat center center/cover;
+            background-blend-mode: overlay;
+        }
+        .btn-red {
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+            transition: all 0.3s ease;
+        }
+        .btn-red:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(220, 38, 38, 0.5);
+            color: white;
+        }
+        .btn-white {
+            background: linear-gradient(135deg, #ffffff 0%, #f3f4f6 100%);
+            color: #111827;
+            border: 1px solid #d1d5db;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        .btn-white:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(14, 165, 233, 0.2); /* Subtle sky blue border */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #38bdf8; /* Lighter sky blue on hover */
+            box-shadow: 0 15px 35px rgba(14, 165, 233, 0.15);
+        }
+        .text-glow {
+            text-shadow: 0 0 15px rgba(220, 38, 38, 0.4);
+        }
+        
+        /* Updated Section Backgrounds for light theme */
+        .section-light {
+            background: rgba(255, 255, 255, 0.5);
+        }
+        .section-blue {
+            background: linear-gradient(180deg, rgba(224, 242, 254, 0.5) 0%, rgba(255, 255, 255, 0.8) 100%);
+        }
+        
+        /* Navigation updates for light theme */
+        .nav-light {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid rgba(14, 165, 233, 0.2);
+        }
+        .nav-link {
+            color: #4b5563;
+        }
+        .nav-link:hover {
+            color: #dc2626;
+        }
+        .marquee-horizontal {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+        .marquee-track {
+            display: flex;
+            gap: 1.5rem;
+            width: max-content;
+            animation: marqueeHorizontal 24s linear infinite;
+            will-change: transform;
+        }
+        .marquee-track.clone {
+            animation-delay: 12s;
+        }
+        .marquee-horizontal:hover .marquee-track {
+            animation-play-state: paused;
+        }
+        @keyframes marqueeHorizontal {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-sky-200 selection:text-sky-900">
+    
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 nav-light backdrop-blur-md py-4 transition-all duration-300 shadow-sm">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-3">
+                <img src="MHPS LOGO.PNG" alt="MHPS Logo" class="h-16 w-auto object-contain">
+                <span class="text-2xl font-epic font-bold text-gray-900 tracking-wider hidden sm:inline"></span>
+            </a>
+            <div class="hidden md:flex space-x-8 text-sm font-semibold uppercase tracking-widest">
+                <a href="#how-to-play" class="nav-link transition">How to Play</a>
+                <a href="#features" class="nav-link transition">Features</a>`
+                <a href="#about" class="nav-link transition">About</a>
+                <a href="#heroes" class="nav-link transition">Heroes</a>
+            </div>
+            <a href="https://discord.gg/MHPS" target="_blank" class="hidden md:inline-block px-5 py-2 border-2 border-red-600 text-red-600 rounded-full hover:bg-red-600 hover:text-white transition font-bold uppercase text-sm tracking-wider">
+                Join Discord
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg min-h-screen flex items-center justify-center pt-20 relative">
+        <div class="absolute inset-0 bg-white/60 z-0"></div> <!-- Lighter overlay -->
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <!-- Logo Reference -->
+            <img src="MHPS LOGO.PNG" alt="MHPS Logo" class="mx-auto w-96 md:w-[36rem] lg:w-[42rem] mb-8 drop-shadow-2xl transform hover:scale-105 transition duration-500">
+            
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight text-gray-900">
+                <span>THE ULTIMATE</span> <br/>
+                <span class="text-red-600 text-glow">RED & WHITE</span> EXPERIENCE
+            </h1>
+            <p class="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto mb-10 leading-relaxed font-medium">
+                Unite and Build in Merah Putih Private Server! Rasakan semangat gotong royong dengan komunitas paling solid, server anti-lag yang tangguh, custom item bernuansa epik Nusantara, dan sistem keamanan sekuat benteng pelindung.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
+                <a href="#how-to-play" class="btn-red px-10 py-4 rounded-full font-bold uppercase tracking-wider text-lg w-full sm:w-auto text-center flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-play"></i> Mulai Berjuang
+                </a>
+                <a href="https://discord.gg/MHPS" target="_blank" class="btn-white px-10 py-4 rounded-full font-bold uppercase tracking-wider text-lg w-full sm:w-auto text-center flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-discord text-[#5865F2]"></i> Markas Besar
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <audio id="bgMusic" autoplay loop preload="auto">
+        <source src="background_music.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        const music = document.getElementById('bgMusic');
+
+        if (music) {
+            music.volume = 0.25;
+            music.muted = false;
+
+            const tryPlay = () => {
+                const playPromise = music.play();
+                if (playPromise && typeof playPromise.then === 'function') {
+                    playPromise.catch(() => {});
+                }
+            };
+
+            window.addEventListener('load',tryPlay);
+
+            ['pointerdown', 'touchstart', 'keydown'].forEach((eventName) => {
+                window.addEventListener(eventName, tryPlay, { once: true });
+            });
+        }
+    </script>
+
+    <!-- How to Play Section -->
+    <section id="how-to-play" class="py-24 section-light">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 uppercase tracking-wider text-gray-900"><span class="text-red-600">Persiapkan</span> Perjalananmu</h2>
+                <p class="text-gray-600 font-medium">Step-by-step installation guide to join the Merah Putih Private Server</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Android -->
+                <div class="card p-8 rounded-2xl relative overflow-hidden group">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-green-500 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                    <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa-brands fa-android text-3xl text-green-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-900">Android Platform</h3>
+                    <p class="text-gray-600 mb-4 text-sm leading-relaxed">Pilih salah satu metode untuk menembus gerbang Nusantara:</p>
+                    <ul class="space-y-3 text-sm text-gray-700 font-medium">
+                        <li class="flex items-start"><i class="fa-solid fa-check text-green-500 mt-1 mr-3"></i> <span><strong>MHPS Mobile APK:</strong> Client khusus siap pakai.</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-green-500 mt-1 mr-3"></i> <span><strong>PowerTunnel:</strong> Bypass rute dengan aman.</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-green-500 mt-1 mr-3"></i> <span><strong>Hosts Go:</strong> Modifikasi rute network instan.</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-green-500 mt-1 mr-3"></i> <span><strong>Virtual Host:</strong> Environment jaringan mandiri.</span></li>
+                    </ul>
+                </div>
+
+                <!-- Windows -->
+                <div class="card p-8 rounded-2xl relative overflow-hidden group">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-blue-500 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa-brands fa-windows text-3xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-900">Windows PC</h3>
+                    <p class="text-gray-600 mb-4 text-sm leading-relaxed">Modifikasi sistem inti untuk koneksi langsung yang tak tertandingi.</p>
+                    <ul class="space-y-3 text-sm text-gray-700 font-medium">
+                        <li class="flex items-start"><i class="fa-solid fa-check text-blue-500 mt-1 mr-3"></i> <span>Navigasi ke: <code class="bg-gray-100 px-2 py-1 rounded border border-gray-200 text-blue-600 text-xs block mt-1">C:\Windows\System32\drivers\etc\</code></span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-blue-500 mt-1 mr-3"></i> <span>Buka file <strong>hosts</strong> (Run as Admin).</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-blue-500 mt-1 mr-3"></i> <span>Tambahkan IP Server di baris terbawah.</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-blue-500 mt-1 mr-3"></i> <span>Save & Mulai Berjuang!</span></li>
+                    </ul>
+                </div>
+
+                <!-- iOS -->
+                <div class="card p-8 rounded-2xl relative overflow-hidden group">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gray-800 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                    <div class="bg-gray-200 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa-brands fa-apple text-3xl text-gray-800"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-900">iPhone (iOS)</h3>
+                    <p class="text-gray-600 mb-4 text-sm leading-relaxed">Gunakan alat canggih untuk membuka akses dari perangkat Apple-mu.</p>
+                    <ul class="space-y-3 text-sm text-gray-700 font-medium">
+                        <li class="flex items-start"><i class="fa-solid fa-check text-gray-800 mt-1 mr-3"></i> <span>Download aplikasi <strong>Surge5</strong> dari App Store.</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-gray-800 mt-1 mr-3"></i> <span>Import konfigurasi jaringan MHPS.</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-gray-800 mt-1 mr-3"></i> <span>Aktifkan profile dan pastikan koneksi stabil.</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-gray-800 mt-1 mr-3"></i> <span>Buka Growtopia dan bergabunglah!</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose MHPS Section -->
+    <section id="features" class="py-24 section-blue border-t border-b border-sky-100">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 uppercase tracking-wider text-gray-900">Kekuatan <span class="text-red-600">Nusantara</span></h2>
+                <p class="text-gray-600 font-medium">Why Choose MHPS? Fitur unggulan yang membuat kami berbeda.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Feature 1 -->
+                <div class="card p-6 flex items-start gap-4 rounded-xl border-l-4 border-l-red-600 bg-white">
+                    <div class="bg-red-100 p-3 rounded-lg text-red-600 mt-1">
+                        <i class="fa-solid fa-shield-halved text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold mb-2 text-gray-900">Solidarity & Safe Environment</h4>
+                        <p class="text-sm text-gray-600">Keamanan sekuat benteng pelindung. Komunitas yang bebas toxic dengan sistem moderasi yang adil, tegas, dan transparan.</p>
+                    </div>
+                </div>
+                <!-- Feature 2 -->
+                <div class="card p-6 flex items-start gap-4 rounded-xl border-l-4 border-l-sky-500 bg-white">
+                    <div class="bg-sky-100 p-3 rounded-lg text-sky-600 mt-1">
+                        <i class="fa-solid fa-users text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold mb-2 text-gray-900">Nusantara Community</h4>
+                        <p class="text-sm text-gray-600">Bergabunglah dengan ribuan pemain aktif yang menjunjung tinggi nilai persaudaraan, saling membantu, dan bergotong-royong.</p>
+                    </div>
+                </div>
+                <!-- Feature 3 -->
+                <div class="card p-6 flex items-start gap-4 rounded-xl border-l-4 border-l-amber-500 bg-white">
+                    <div class="bg-amber-100 p-3 rounded-lg text-amber-600 mt-1">
+                        <i class="fa-solid fa-gem text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold mb-2 text-gray-900">Epic Custom Features</h4>
+                        <p class="text-sm text-gray-600">Ratusan item unik bernuansa lokal, quest epik, ekonomi adil, serta event-event nasional yang dirancang khusus untukmu.</p>
+                    </div>
+                </div>
+                <!-- Feature 4 -->
+                <div class="card p-6 flex items-start gap-4 rounded-xl border-l-4 border-l-emerald-500 bg-white">
+                    <div class="bg-emerald-100 p-3 rounded-lg text-emerald-600 mt-1">
+                        <i class="fa-solid fa-server text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold mb-2 text-gray-900">Unbreakable Server</h4>
+                        <p class="text-sm text-gray-600">Infrastruktur server anti-lag dengan jaminan uptime 24/7. Performa maksimal untuk petualangan tanpa hambatan.</p>
+                    </div>
+                </div>
+                <!-- Feature 5 -->
+                <div class="card p-6 flex items-start gap-4 rounded-xl border-l-4 border-l-indigo-500 bg-white md:col-span-2 lg:col-span-1">
+                    <div class="bg-indigo-100 p-3 rounded-lg text-indigo-600 mt-1">
+                        <i class="fa-solid fa-handshake-angle text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold mb-2 text-gray-900">Heroic Support</h4>
+                        <p class="text-sm text-gray-600">Tim support kami siap sedia membantu. Pelayanan cepat dan responsif layaknya garda terdepan pelindung komunitas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 section-light relative overflow-hidden">
+        <!-- Decoration -->
+        <div class="absolute -right-32 -bottom-32 w-96 h-96 bg-sky-200/50 rounded-full blur-3xl"></div>
+        <div class="absolute -left-32 -top-32 w-96 h-96 bg-red-100/50 rounded-full blur-3xl"></div>
+        
+        <div class="container mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center gap-12">
+            <div class="w-full md:w-1/2 relative">
+                <div class="absolute inset-0 bg-gradient-to-tr from-sky-400/20 to-red-400/20 rounded-2xl mix-blend-multiply"></div>
+                <img src="Image_AboutUS.PNG" alt="About Us Image" class="rounded-2xl shadow-2xl border-4 border-white object-cover h-[400px] w-full">
+            </div>
+            <div class="w-full md:w-1/2 space-y-6">
+                <div class="inline-block px-4 py-1.5 bg-sky-100 border border-sky-200 text-sky-800 text-xs font-bold tracking-widest uppercase rounded-full shadow-sm">
+                    Filosofi Kami (About Us)
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold leading-tight uppercase tracking-wide text-gray-900">
+                    Sebuah Rumah Untuk <br><span class="text-red-600">Berkarya Tanpa Batas</span>
+                </h2>
+                <p class="text-gray-700 leading-relaxed text-lg font-medium">
+                    MHPS (Merah Putih Private Server) bukanlah sekadar server game biasa. Kami membangun ekosistem ini dengan Visi dan Misi sebagai "Rumah" bagi para Growtopian Nusantara. 
+                </p>
+                <p class="text-gray-600 leading-relaxed">
+                    Kami hadir untuk membuktikan bahwa Private Server dapat memiliki komunitas yang positif, suportif, dan menjunjung tinggi sportivitas. Di MHPS, setiap pemain bebas menuliskan jalan ceritanya sendiri—baik sebagai <strong class="text-gray-900">Builder</strong> legendaris, <strong class="text-gray-900">Trader</strong> yang cerdas, maupun <strong class="text-gray-900">Pelindung</strong> komunitas. Dengan semangat gotong royong, kita bangun kebanggaan bersama.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community & Team Section -->
+    <section id="heroes" class="py-24 section-blue">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 uppercase tracking-wider text-gray-900">Para Pahlawan <span class="text-red-600">Server</span></h2>
+                <p class="text-gray-600 font-medium max-w-2xl mx-auto mb-8">
+                    Temui para pelindung, arsitek, dan komandan di balik berdirinya MHPS. Bergabunglah dengan markas besar kami dan jadilah bagian dari sejarah!
+                </p>
+                <div class="flex justify-center gap-4 flex-wrap">
+                    <a href="https://discord.gg/MHPS" target="_blank" class="px-6 py-3 bg-[#5865F2] hover:bg-[#4752C4] text-white rounded-full font-bold flex items-center gap-2 transition shadow-lg shadow-indigo-200">
+                        <i class="fa-brands fa-discord text-xl"></i> Discord Hub
+                    </a>
+                    <a href="https://www.tiktok.com/@cicigtps?is_from_webapp=1&sender_device=pc" target="_blank" class="px-6 py-3 bg-black hover:bg-gray-800 text-white rounded-full font-bold flex items-center gap-2 transition shadow-lg shadow-gray-300">
+                        <i class="fa-brands fa-tiktok text-xl"></i> TikTok
+                    </a>
+                </div>
+            </div>
+
+            <!-- Team Grid -->
+       <!-- Team Grid Marquee (Berjalan Kiri & Looping) -->
+            <div class="marquee-wrapper mx-auto max-w-7xl">
+                <div class="marquee-track">
+                    <!-- SET 1 (Awal) -->
+                    <div class="card p-8 rounded-2xl text-center relative mt-8 hero-card">
+                        <div class="absolute -top-10 left-1/2 transform -translate-x-1/2 w-20 h-20 bg-white rounded-full flex items-center justify-center border-4 border-red-500 shadow-lg">
+                            <i class="fa-solid fa-crown text-3xl text-red-500"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mt-6 mb-1">AnotherCICI</h3>
+                        <p class="text-red-600 text-sm font-bold uppercase tracking-widest mb-4">Supreme Founder</p>
+                        <p class="text-gray-600 text-sm italic font-medium">"Merah Putih bukan sekadar nama, ini adalah rumah dan kebanggaan kita bersama. Berjuanglah, Hero!"</p>
+                    </div>
+                    <div class="card p-8 rounded-2xl text-center relative mt-8 hero-card">
+                        <div class="absolute -top-10 left-1/2 transform -translate-x-1/2 w-20 h-20 bg-white rounded-full flex items-center justify-center border-4 border-amber-500 shadow-lg">
+                            <i class="fa-solid fa-star text-3xl text-amber-500"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mt-6 mb-1">Carol (KipaKipi)</h3>
+                        <p class="text-amber-600 text-sm font-bold uppercase tracking-widest mb-4">Supreme Commander / Owner</p>
+                        <p class="text-gray-600 text-sm italic font-medium">"Kita tidak hanya membangun blok, tapi membangun persaudaraan. Maju terus tanpa batas!"</p>
+                    </div>
+                    <div class="card p-8 rounded-2xl text-center relative mt-8 hero-card">
+                        <div class="absolute -top-10 left-1/2 transform -translate-x-1/2 w-20 h-20 bg-white rounded-full flex items-center justify-center border-4 border-blue-500 shadow-lg">
+                            <i class="fa-solid fa-shield text-3xl text-blue-500"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mt-6 mb-1">Jendral</h3>
+                        <p class="text-blue-600 text-sm font-bold uppercase tracking-widest mb-4">Elite Vanguard / Head Staff</p>
+                        <p class="text-gray-600 text-sm italic font-medium">"Keamanan dan kedamaian komunitas adalah prioritas utamaku. Tidak ada ruang untuk toksisitas di sini."</p>
+                    </div>
+                    <div class="card p-8 rounded-2xl text-center relative mt-8 hero-card">
+                        <div class="absolute -top-10 left-1/2 transform -translate-x-1/2 w-20 h-20 bg-white rounded-full flex items-center justify-center border-4 border-emerald-500 shadow-lg">
+                            <i class="fa-solid fa-code text-3xl text-emerald-500"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mt-6 mb-1">lucas</h3>
+                        <p class="text-emerald-600 text-sm font-bold uppercase tracking-widest mb-4">Chief Architect / Server Coder</p>
+                        <p class="text-gray-600 text-sm italic font-medium">"Setiap baris kode didedikasikan untuk performa maksimal dan pengalaman bermain tanpa hambatan."</p>
+                    </div>
+                    <div class="card p-8 rounded-2xl text-center relative mt-8 hero-card">
+                        <div class="absolute -top-10 left-1/2 transform -translate-x-1/2 w-20 h-20 bg-white rounded-full flex items-center justify-center border-4 border-indigo-500 shadow-lg">
+                            <i class="fa-solid fa-bolt text-3xl text-indigo-500"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mt-6 mb-1">Dior, leinz, High</h3>
+                        <p class="text-indigo-600 text-sm font-bold uppercase tracking-widest mb-4">Vanguard Guardians / Staff</p>
+                        <p class="text-gray-600 text-sm italic font-medium">"Kami adalah garda terdepan. Siap melindungi, memandu, dan memastikan setiap petualanganmu aman!"</p>
+                    </div>
+
+                    <!-- SET 2 (Duplikat untuk efek looping tanpa putus) -->
+                    <div class="card p-8 rounded-2xl text-center relative mt-8 hero-card">
+                        <div class="absolute -top-10 left-1/2 transform -translate-x-1/2 w-20 h-20 bg-white rounded-full flex items-center justify-center border-4 border-red-500 shadow-lg">
+                            <i class="fa-solid fa-crown text-3xl text-red-500"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mt-6 mb-1">AnotherCICI</h3>
+                        <p class="text-red-600 text-sm font-bold uppercase tracking-widest mb-4">Supreme Founder</p>
+                        <p class="text-gray-600 text-sm italic font-medium">"Merah Putih bukan sekadar nama, ini adalah rumah dan kebanggaan kita bersama. Berjuanglah, Hero!"</p>
+                    </div>
+                    <div class="card p-8 rounded-2xl text-center relative mt-8 hero-card">
+                        <div class="absolute -top-10 left-1/2 transform -translate-x-1/2 w-20 h-20 bg-white rounded-full flex items-center justify-center border-4 border-amber-500 shadow-lg">
+                            <i class="fa-solid fa-star text-3xl text-amber-500"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mt-6 mb-1">Carol (KipaKipi)</h3>
+                        <p class="text-amber-600 text-sm font-bold uppercase tracking-widest mb-4">Supreme Commander / Owner</p>
+                        <p class="text-gray-600 text-sm italic font-medium">"Kita tidak hanya membangun blok, tapi membangun persaudaraan. Maju terus tanpa batas!"</p>
+                    </div>
+                    <div class="card p-8 rounded-2xl text-center relative mt-8 hero-card">
+                        <div class="absolute -top-10 left-1/2 transform -translate-x-1/2 w-20 h-20 bg-white rounded-full flex items-center justify-center border-4 border-blue-500 shadow-lg">
+                            <i class="fa-solid fa-shield text-3xl text-blue-500"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mt-6 mb-1">Jendral</h3>
+                        <p class="text-blue-600 text-sm font-bold uppercase tracking-widest mb-4">Elite Vanguard / Head Staff</p>
+                        <p class="text-gray-600 text-sm italic font-medium">"Keamanan dan kedamaian komunitas adalah prioritas utamaku. Tidak ada ruang untuk toksisitas di sini."</p>
+                    </div>
+                    <div class="card p-8 rounded-2xl text-center relative mt-8 hero-card">
+                        <div class="absolute -top-10 left-1/2 transform -translate-x-1/2 w-20 h-20 bg-white rounded-full flex items-center justify-center border-4 border-emerald-500 shadow-lg">
+                            <i class="fa-solid fa-code text-3xl text-emerald-500"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mt-6 mb-1">lucas</h3>
+                        <p class="text-emerald-600 text-sm font-bold uppercase tracking-widest mb-4">Chief Architect / Server Coder</p>
+                        <p class="text-gray-600 text-sm italic font-medium">"Setiap baris kode didedikasikan untuk performa maksimal dan pengalaman bermain tanpa hambatan."</p>
+                    </div>
+                    <div class="card p-8 rounded-2xl text-center relative mt-8 hero-card">
+                        <div class="absolute -top-10 left-1/2 transform -translate-x-1/2 w-20 h-20 bg-white rounded-full flex items-center justify-center border-4 border-indigo-500 shadow-lg">
+                            <i class="fa-solid fa-bolt text-3xl text-indigo-500"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mt-6 mb-1">Dior, leinz, High</h3>
+                        <p class="text-indigo-600 text-sm font-bold uppercase tracking-widest mb-4">Vanguard Guardians / Staff</p>
+                        <p class="text-gray-600 text-sm italic font-medium">"Kami adalah garda terdepan. Siap melindungi, memandu, dan memastikan setiap petualanganmu aman!"</p>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white py-12 border-t border-sky-200">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="font-epic text-3xl font-bold tracking-wider mb-4 text-gray-900">
+                <span class="text-red-600">M</span>H<span class="text-red-600">P</span>S
+            </h2>
+            <p class="text-gray-600 font-medium mb-8">
+                Merah Putih Private Server - Kebanggaan Nusantara
+            </p>
+            <div class="flex justify-center gap-6 mb-8">
+                <a href="https://discord.gg/MHPS" class="text-gray-400 hover:text-[#5865F2] transition text-2xl"><i class="fa-brands fa-discord"></i></a>
+                <a href="https://www.tiktok.com/@cicigtps?is_from_webapp=1&sender_device=pc" class="text-gray-400 hover:text-black transition text-2xl"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+            <div class="border-t border-gray-100 pt-8 mt-4">
+                <p class="text-gray-800 text-sm font-bold mb-2">
+                    &copy; 2025 - MHPS (Merah Putih Private Server). All Rights Reserved.
+                </p>
+                <p class="text-gray-500 text-xs italic">
+                    Disclaimer: MHPS is not affiliated with Growtopia or Ubisoft Entertainment.
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
