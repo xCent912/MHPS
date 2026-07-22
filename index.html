@@ -98,12 +98,15 @@
             color: #dc2626;
         }
 
-        /* PERBAIKAN INFINITE MARQUEE TANPA DELAY */
+        /* PERBAIKAN INFINITE MARQUEE: Seamless looping tanpa delay / jeda */
         .marquee-container {
             overflow: hidden;
             width: 100%;
             position: relative;
             display: flex;
+            /* Tambahan padding atas agar ikon mahkota/bintang bulat di atas tidak terpotong */
+            padding-top: 2.5rem; 
+            padding-bottom: 1rem;
         }
 
         .marquee-track {
@@ -122,7 +125,9 @@
                 transform: translateX(0);
             }
             100% {
-                transform: translateX(calc(-100% - 1.5rem));
+                /* Menggunakan -50% agar saat mencapai setengah trek (tepat di awal Set 2), 
+                   animasi langsung mereset ke 0% secara instan tanpa jeda sama sekali */
+                transform: translateX(-50%);
             }
         }
 
@@ -376,7 +381,7 @@
         </div>
     </section>
 
-    <!-- Heroes Section (Marquee Mulus Tanpa Jeda) -->
+    <!-- Heroes Section (Marquee Seamless Tanpa Jeda & Bebas Potong) -->
     <section id="heroes" class="py-20 sm:py-24 section-blue overflow-hidden">
         <div class="container mx-auto px-6 mb-12">
             <div class="text-center">
@@ -395,10 +400,10 @@
             </div>
         </div>
 
-        <!-- Marquee Container -->
+        <!-- Marquee Container dengan Padding Atas Cukup untuk Mahkota -->
         <div class="marquee-container">
             <div class="marquee-track">
-                <!-- SET 1 -->
+                <!-- SET 1 (5 Anggota) -->
                 <div class="card p-6 sm:p-8 rounded-2xl text-center relative mt-8 hero-card-item">
                     <div class="absolute -top-10 left-1/2 transform -translate-x-1/2 w-20 h-20 bg-white rounded-full flex items-center justify-center border-4 border-red-500 shadow-lg">
                         <i class="fa-solid fa-crown text-3xl text-red-500"></i>
@@ -444,7 +449,7 @@
                     <p class="text-gray-600 text-xs sm:text-sm italic font-medium">"Kami adalah garda terdepan. Siap melindungi, memandu, dan memastikan setiap petualanganmu aman!"</p>
                 </div>
 
-                <!-- SET 2 (Salinan Identik untuk Perputaran Tanpa Jeda) -->
+                <!-- SET 2 (Salinan Persis Set 1 agar Looping 100% Mulus Tanpa Jeda) -->
                 <div class="card p-6 sm:p-8 rounded-2xl text-center relative mt-8 hero-card-item">
                     <div class="absolute -top-10 left-1/2 transform -translate-x-1/2 w-20 h-20 bg-white rounded-full flex items-center justify-center border-4 border-red-500 shadow-lg">
                         <i class="fa-solid fa-crown text-3xl text-red-500"></i>
