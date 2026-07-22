@@ -15,20 +15,21 @@
             overflow-x: hidden;
             width: 100%;
             position: relative;
-            font-family: 'Montserrat', sans-serif;
-            background: linear-gradient(180deg, #ffffff 0%, #e0f2fe 100%);
+            /* Tema Merah & Putih Elegan Bergradasi Lembut */
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(180deg, #ffffff 0%, #fef2f2 50%, #fee2e2 100%);
             color: #1f2937;
             min-height: 100vh;
         }
 
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@400;600;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
         
         h1, h2, h3, .font-epic {
             font-family: 'Cinzel', serif;
         }
 
         .hero-bg {
-            background: radial-gradient(circle at center, rgba(185, 28, 28, 0.05) 0%, rgba(255, 255, 255, 0.9) 70%), 
+            background: radial-gradient(circle at center, rgba(220, 38, 38, 0.04) 0%, rgba(255, 255, 255, 0.95) 70%), 
                         url('Background_image.PNG') no-repeat center center/cover;
             background-blend-mode: overlay;
         }
@@ -47,47 +48,47 @@
         }
 
         .btn-white {
-            background: linear-gradient(135deg, #ffffff 0%, #f3f4f6 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
             color: #111827;
-            border: 1px solid #d1d5db;
+            border: 1px solid #e5e7eb;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
         }
 
         .btn-white:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
         }
 
         .card {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(14, 165, 233, 0.2);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(239, 68, 68, 0.15);
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.04);
             transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .card:hover {
             transform: translateY(-5px);
-            border-color: #38bdf8;
-            box-shadow: 0 15px 35px rgba(14, 165, 233, 0.15);
+            border-color: #f87171;
+            box-shadow: 0 15px 35px rgba(220, 38, 38, 0.1);
         }
 
         .text-glow {
-            text-shadow: 0 0 15px rgba(220, 38, 38, 0.4);
+            text-shadow: 0 0 20px rgba(220, 38, 38, 0.3);
         }
 
         .section-light {
-            background: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.7);
         }
 
-        .section-blue {
-            background: linear-gradient(180deg, rgba(224, 242, 254, 0.5) 0%, rgba(255, 255, 255, 0.8) 100%);
+        .section-red-gradient {
+            background: linear-gradient(180deg, rgba(254, 242, 242, 0.6) 0%, rgba(255, 255, 255, 0.9) 100%);
         }
 
         .nav-light {
             background-color: rgba(255, 255, 255, 0.95);
-            border-bottom: 1px solid rgba(14, 165, 233, 0.2);
+            border-bottom: 1px solid rgba(239, 68, 68, 0.15);
         }
 
         .nav-link {
@@ -98,14 +99,13 @@
             color: #dc2626;
         }
 
-        /* PERBAIKAN INFINITE MARQUEE: Seamless looping tanpa delay / jeda */
+        /* INFINITE MARQUEE TANPA JEDA & DENGAN JARAK AMAN ATAS */
         .marquee-container {
             overflow: hidden;
             width: 100%;
             position: relative;
             display: flex;
-            /* Tambahan padding atas agar ikon mahkota/bintang bulat di atas tidak terpotong */
-            padding-top: 2.5rem; 
+            padding-top: 3rem; 
             padding-bottom: 1rem;
         }
 
@@ -125,8 +125,6 @@
                 transform: translateX(0);
             }
             100% {
-                /* Menggunakan -50% agar saat mencapai setengah trek (tepat di awal Set 2), 
-                   animasi langsung mereset ke 0% secara instan tanpa jeda sama sekali */
                 transform: translateX(-50%);
             }
         }
@@ -137,7 +135,7 @@
         }
     </style>
 </head>
-<body class="antialiased selection:bg-sky-200 selection:text-sky-900">
+<body class="antialiased selection:bg-red-200 selection:text-red-900">
     
     <!-- Navigation -->
     <nav class="fixed w-full z-50 nav-light backdrop-blur-md py-4 transition-all duration-300 shadow-sm">
@@ -159,7 +157,7 @@
 
     <!-- Hero Section -->
     <section class="hero-bg min-h-screen flex items-center justify-center pt-24 pb-12 relative">
-        <div class="absolute inset-0 bg-white/60 z-0"></div>
+        <div class="absolute inset-0 bg-white/70 z-0"></div>
         <div class="container mx-auto px-6 relative z-10 text-center">
             <img src="MHPS LOGO.PNG" alt="MHPS Logo" class="mx-auto w-72 sm:w-80 md:w-96 mb-6 drop-shadow-2xl transform hover:scale-105 transition duration-500">
             
@@ -188,7 +186,7 @@
 
     <!-- Welcome Modal / Notifikasi Blur -->
     <div id="welcome-modal" class="fixed inset-0 z-[100] bg-black/40 backdrop-blur-md flex items-center justify-center transition-all duration-700 p-4">
-        <div id="modal-content" class="bg-white p-6 sm:p-10 rounded-3xl shadow-[0_0_40px_rgba(220,38,38,0.3)] text-center max-w-md w-full transform transition-all duration-500 scale-100 border border-red-100">
+        <div id="modal-content" class="bg-white p-6 sm:p-10 rounded-3xl shadow-[0_0_40px_rgba(220,38,38,0.2)] text-center max-w-md w-full transform transition-all duration-500 scale-100 border border-red-100">
             <img src="MHPS LOGO.PNG" alt="MHPS Logo" class="mx-auto w-36 sm:w-44 mb-4 drop-shadow-md animate-pulse">
             
             <h2 class="text-2xl sm:text-3xl font-bold font-epic text-gray-900 mb-3 uppercase">
@@ -242,49 +240,49 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Android -->
                 <div class="card p-6 sm:p-8 rounded-2xl relative overflow-hidden group">
-                    <div class="absolute top-0 left-0 w-full h-1 bg-green-500 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
-                    <div class="bg-green-100 w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mb-6">
-                        <i class="fa-brands fa-android text-2xl sm:text-3xl text-green-600"></i>
+                    <div class="absolute top-0 left-0 w-full h-1 bg-red-600 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                    <div class="bg-red-50 w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa-brands fa-android text-2xl sm:text-3xl text-red-600"></i>
                     </div>
                     <h3 class="text-xl sm:text-2xl font-bold mb-4 text-gray-900">Android Platform</h3>
                     <p class="text-gray-600 mb-4 text-sm leading-relaxed">Pilih salah satu metode untuk menembus gerbang Nusantara:</p>
                     <ul class="space-y-3 text-sm text-gray-700 font-medium">
-                        <li class="flex items-start"><i class="fa-solid fa-check text-green-500 mt-1 mr-3 flex-shrink-0"></i> <span><strong>MHPS Mobile APK:</strong> Client khusus siap pakai.</span></li>
-                        <li class="flex items-start"><i class="fa-solid fa-check text-green-500 mt-1 mr-3 flex-shrink-0"></i> <span><strong>PowerTunnel:</strong> Bypass rute dengan aman.</span></li>
-                        <li class="flex items-start"><i class="fa-solid fa-check text-green-500 mt-1 mr-3 flex-shrink-0"></i> <span><strong>Hosts Go:</strong> Modifikasi rute network instan.</span></li>
-                        <li class="flex items-start"><i class="fa-solid fa-check text-green-500 mt-1 mr-3 flex-shrink-0"></i> <span><strong>Virtual Host:</strong> Environment jaringan mandiri.</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-red-500 mt-1 mr-3 flex-shrink-0"></i> <span><strong>MHPS Mobile APK:</strong> Client khusus siap pakai.</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-red-500 mt-1 mr-3 flex-shrink-0"></i> <span><strong>PowerTunnel:</strong> Bypass rute dengan aman.</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-red-500 mt-1 mr-3 flex-shrink-0"></i> <span><strong>Hosts Go:</strong> Modifikasi rute network instan.</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-red-500 mt-1 mr-3 flex-shrink-0"></i> <span><strong>Virtual Host:</strong> Environment jaringan mandiri.</span></li>
                     </ul>
                 </div>
 
                 <!-- Windows -->
                 <div class="card p-6 sm:p-8 rounded-2xl relative overflow-hidden group">
-                    <div class="absolute top-0 left-0 w-full h-1 bg-blue-500 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
-                    <div class="bg-blue-100 w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mb-6">
-                        <i class="fa-brands fa-windows text-2xl sm:text-3xl text-blue-600"></i>
+                    <div class="absolute top-0 left-0 w-full h-1 bg-red-600 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                    <div class="bg-red-50 w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa-brands fa-windows text-2xl sm:text-3xl text-red-600"></i>
                     </div>
                     <h3 class="text-xl sm:text-2xl font-bold mb-4 text-gray-900">Windows PC</h3>
                     <p class="text-gray-600 mb-4 text-sm leading-relaxed">Modifikasi sistem inti untuk koneksi langsung yang tak tertandingi.</p>
                     <ul class="space-y-3 text-sm text-gray-700 font-medium">
-                        <li class="flex items-start"><i class="fa-solid fa-check text-blue-500 mt-1 mr-3 flex-shrink-0"></i> <span>Navigasi ke: <code class="bg-gray-100 px-2 py-1 rounded border border-gray-200 text-blue-600 text-xs block mt-1 break-all">C:\Windows\System32\drivers\etc\</code></span></li>
-                        <li class="flex items-start"><i class="fa-solid fa-check text-blue-500 mt-1 mr-3 flex-shrink-0"></i> <span>Buka file <strong>hosts</strong> (Run as Admin).</span></li>
-                        <li class="flex items-start"><i class="fa-solid fa-check text-blue-500 mt-1 mr-3 flex-shrink-0"></i> <span>Tambahkan IP Server di baris terbawah.</span></li>
-                        <li class="flex items-start"><i class="fa-solid fa-check text-blue-500 mt-1 mr-3 flex-shrink-0"></i> <span>Save & Mulai Berjuang!</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-red-500 mt-1 mr-3 flex-shrink-0"></i> <span>Navigasi ke: <code class="bg-gray-100 px-2 py-1 rounded border border-gray-200 text-red-600 text-xs block mt-1 break-all">C:\Windows\System32\drivers\etc\</code></span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-red-500 mt-1 mr-3 flex-shrink-0"></i> <span>Buka file <strong>hosts</strong> (Run as Admin).</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-red-500 mt-1 mr-3 flex-shrink-0"></i> <span>Tambahkan IP Server di baris terbawah.</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-red-500 mt-1 mr-3 flex-shrink-0"></i> <span>Save & Mulai Berjuang!</span></li>
                     </ul>
                 </div>
 
                 <!-- iOS -->
                 <div class="card p-6 sm:p-8 rounded-2xl relative overflow-hidden group">
-                    <div class="absolute top-0 left-0 w-full h-1 bg-gray-800 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
-                    <div class="bg-gray-200 w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mb-6">
-                        <i class="fa-brands fa-apple text-2xl sm:text-3xl text-gray-800"></i>
+                    <div class="absolute top-0 left-0 w-full h-1 bg-red-600 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                    <div class="bg-red-50 w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa-brands fa-apple text-2xl sm:text-3xl text-red-600"></i>
                     </div>
                     <h3 class="text-xl sm:text-2xl font-bold mb-4 text-gray-900">iPhone (iOS)</h3>
                     <p class="text-gray-600 mb-4 text-sm leading-relaxed">Gunakan alat canggih untuk membuka akses dari perangkat Apple-mu.</p>
                     <ul class="space-y-3 text-sm text-gray-700 font-medium">
-                        <li class="flex items-start"><i class="fa-solid fa-check text-gray-800 mt-1 mr-3 flex-shrink-0"></i> <span>Download aplikasi <strong>Surge5</strong> dari App Store.</span></li>
-                        <li class="flex items-start"><i class="fa-solid fa-check text-gray-800 mt-1 mr-3 flex-shrink-0"></i> <span>Import konfigurasi jaringan MHPS.</span></li>
-                        <li class="flex items-start"><i class="fa-solid fa-check text-gray-800 mt-1 mr-3 flex-shrink-0"></i> <span>Aktifkan profile dan pastikan koneksi stabil.</span></li>
-                        <li class="flex items-start"><i class="fa-solid fa-check text-gray-800 mt-1 mr-3 flex-shrink-0"></i> <span>Buka Growtopia dan bergabunglah!</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-red-500 mt-1 mr-3 flex-shrink-0"></i> <span>Download aplikasi <strong>Surge5</strong> dari App Store.</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-red-500 mt-1 mr-3 flex-shrink-0"></i> <span>Import konfigurasi jaringan MHPS.</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-red-500 mt-1 mr-3 flex-shrink-0"></i> <span>Aktifkan profile dan pastikan koneksi stabil.</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-red-500 mt-1 mr-3 flex-shrink-0"></i> <span>Buka Growtopia dan bergabunglah!</span></li>
                     </ul>
                 </div>
             </div>
@@ -292,7 +290,7 @@
     </section>
 
     <!-- Why Choose MHPS Section -->
-    <section id="features" class="py-20 sm:py-24 section-blue border-t border-b border-sky-100">
+    <section id="features" class="py-20 sm:py-24 section-red-gradient border-t border-b border-red-100">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
                 <h2 class="text-3xl sm:text-4xl font-bold mb-4 uppercase tracking-wider text-gray-900">Kekuatan <span class="text-red-600">Nusantara</span></h2>
@@ -311,8 +309,8 @@
                     </div>
                 </div>
                 <!-- Feature 2 -->
-                <div class="card p-6 flex items-start gap-4 rounded-xl border-l-4 border-l-sky-500 bg-white">
-                    <div class="bg-sky-100 p-3 rounded-lg text-sky-600 mt-1 flex-shrink-0">
+                <div class="card p-6 flex items-start gap-4 rounded-xl border-l-4 border-l-red-500 bg-white">
+                    <div class="bg-red-100 p-3 rounded-lg text-red-600 mt-1 flex-shrink-0">
                         <i class="fa-solid fa-users text-xl"></i>
                     </div>
                     <div>
@@ -356,16 +354,16 @@
 
     <!-- About Section -->
     <section id="about" class="py-20 sm:py-24 section-light relative overflow-hidden">
-        <div class="absolute -right-32 -bottom-32 w-96 h-96 bg-sky-200/50 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="absolute -left-32 -top-32 w-96 h-96 bg-red-100/50 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -right-32 -bottom-32 w-96 h-96 bg-red-100/40 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -left-32 -top-32 w-96 h-96 bg-red-50/60 rounded-full blur-3xl pointer-events-none"></div>
         
         <div class="container mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center gap-12">
             <div class="w-full md:w-1/2 relative">
-                <div class="absolute inset-0 bg-gradient-to-tr from-sky-400/20 to-red-400/20 rounded-2xl mix-blend-multiply"></div>
+                <div class="absolute inset-0 bg-gradient-to-tr from-red-500/10 to-red-600/15 rounded-2xl mix-blend-multiply"></div>
                 <img src="Image_AboutUS.PNG" alt="About Us Image" class="rounded-2xl shadow-2xl border-4 border-white object-cover h-[300px] sm:h-[400px] w-full">
             </div>
             <div class="w-full md:w-1/2 space-y-6">
-                <div class="inline-block px-4 py-1.5 bg-sky-100 border border-sky-200 text-sky-800 text-xs font-bold tracking-widest uppercase rounded-full shadow-sm">
+                <div class="inline-block px-4 py-1.5 bg-red-100 border border-red-200 text-red-800 text-xs font-bold tracking-widest uppercase rounded-full shadow-sm">
                     Filosofi Kami (About Us)
                 </div>
                 <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight uppercase tracking-wide text-gray-900">
@@ -382,7 +380,7 @@
     </section>
 
     <!-- Heroes Section (Marquee Seamless Tanpa Jeda & Bebas Potong) -->
-    <section id="heroes" class="py-20 sm:py-24 section-blue overflow-hidden">
+    <section id="heroes" class="py-20 sm:py-24 section-red-gradient overflow-hidden">
         <div class="container mx-auto px-6 mb-12">
             <div class="text-center">
                 <h2 class="text-3xl sm:text-4xl font-bold mb-4 uppercase tracking-wider text-gray-900">Para Pahlawan <span class="text-red-600">Server</span></h2>
@@ -499,7 +497,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-white py-12 border-t border-sky-200">
+    <footer class="bg-white py-12 border-t border-red-200">
         <div class="container mx-auto px-6 text-center">
             <h2 class="font-epic text-2xl sm:text-3xl font-bold tracking-wider mb-4 text-gray-900">
                 <span class="text-red-600">M</span>H<span class="text-red-600">P</span>S
