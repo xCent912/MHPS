@@ -154,30 +154,62 @@
         </div>
     </section>
 
-    <audio id="bgMusic" autoplay loop preload="auto">
+    <!-- Audio Element -->
+    <audio id="bgMusic" loop preload="auto">
         <source src="background_music.mp3" type="audio/mpeg">
     </audio>
 
+    <!-- Welcome Modal / Notifikasi Blur -->
+    <div id="welcome-modal" class="fixed inset-0 z-[100] bg-black/40 backdrop-blur-md flex items-center justify-center transition-all duration-700">
+        <!-- Kotak Pesan -->
+        <div id="modal-content" class="bg-white p-8 md:p-12 rounded-3xl shadow-[0_0_40px_rgba(220,38,38,0.3)] text-center max-w-md mx-6 transform transition-all duration-500 scale-100 border border-red-100">
+            <img src="MHPS LOGO.PNG" alt="MHPS Logo" class="mx-auto w-48 mb-6 drop-shadow-md animate-pulse">
+            
+            <h2 class="text-3xl font-bold font-epic text-gray-900 mb-3 uppercase">
+                Salam, <span class="text-red-600">Pahlawan!</span>
+            </h2>
+            
+            <p class="text-gray-600 mb-8 font-medium leading-relaxed">
+                Selamat datang di Merah Putih Private Server. Nyalakan audionya dan siapkan dirimu untuk pengalaman Nusantara yang epik!
+            </p>
+            
+            <button id="enter-btn" class="btn-red px-8 py-4 rounded-full font-bold uppercase tracking-widest text-base w-full flex items-center justify-center gap-3 animate-bounce hover:animate-none">
+                <i class="fa-solid fa-door-open"></i> Buka Gerbang
+            </button>
+        </div>
+    </div>
+
+    <!-- Script Untuk Menghilangkan Blur dan Memutar Musik -->
     <script>
+        const modal = document.getElementById('welcome-modal');
+        const modalContent = document.getElementById('modal-content');
+        const enterBtn = document.getElementById('enter-btn');
         const music = document.getElementById('bgMusic');
 
+        // Atur volume musik (0.0 sampai 1.0)
         if (music) {
             music.volume = 0.25;
-            music.muted = false;
-
-            const tryPlay = () => {
-                const playPromise = music.play();
-                if (playPromise && typeof playPromise.then === 'function') {
-                    playPromise.catch(() => {});
-                }
-            };
-
-            window.addEventListener('load',tryPlay);
-
-            ['pointerdown', 'touchstart', 'keydown'].forEach((eventName) => {
-                window.addEventListener(eventName, tryPlay, { once: true });
-            });
         }
+
+        // Fungsi ketika tombol "Buka Gerbang" diklik
+        enterBtn.addEventListener('click', () => {
+            // 1. Putar musik
+            if (music) {
+                music.play().catch(e => console.log("Audio tidak bisa diputar:", e));
+            }
+            
+            // 2. Berikan efek mengecil pada kotak pesan
+            modalContent.classList.remove('scale-100');
+            modalContent.classList.add('scale-90', 'opacity-0');
+            
+            // 3. Hilangkan efek blur dan background hitam secara perlahan
+            modal.classList.add('opacity-0');
+            
+            // 4. Hapus elemen dari layar sepenuhnya setelah animasi selesai
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 700);
+        });
     </script>
 
     <!-- How to Play Section -->
